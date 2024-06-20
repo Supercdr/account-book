@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5</title>
+</head>
+<body>
+    <img id="myimage" src="res/first.png" height="200" >
+    <canvas id="myCanvas" width="500" height="200"
+    style="border:3px dotted cornflowerblue;background: cornsilk;">
+    您的浏览器不支持canvas标签！
+    </canvas>
+    <script>
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        ctx.fillStyle="#FF0000";
+        ctx.fillRect(10,10,75,75);
+        ctx.moveTo(10,10);
+        ctx.lineTo(85,85);
+        ctx.moveTo(85,10);
+        ctx.lineTo(10,85);
+        ctx.arc(47,85,39,0,2*Math.PI);
+        ctx.font="20px Arial";
+        ctx.fillText("好运来",100,20);
+        ctx.strokeText("祝你好运来",170,20);
+        ctx.stroke();
+        var grd=ctx.createLinearGradient(60,70,70,20);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(1,"blue");
+        ctx.fillStyle=grd;
+        ctx.fillRect(100,30,170,90);
+        var crg=ctx.createRadialGradient(320,30,20,370,30,20);
+        crg.addColorStop(0,"red");
+        crg.addColorStop(1,"white");
+        ctx.fillStyle=crg;
+        ctx.fillRect(300,30,150,250);
+        var img=document.getElementById("myimage");
+        ctx.drawImage(img,10,10);
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+        <polygon points="100,10 40,170 180,60 10,60 160,170"
+         style="fill:rgb(240, 66, 66);stroke:rgba(121, 123, 235, 0.509);stroke-width:3;fill-rule:evenodd"
+    </svg>
+</body>
+</html>

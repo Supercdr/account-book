@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box</title>
+    <style>
+        div#flex-container{
+            background-color:cornflowerblue;
+            width:400px;
+            height:200px;
+            display:flex;
+            align-items:center;
+            flex-wrap:wrap;
+            align-content:space-around;
+
+        }
+        div#flex-items{
+            background-color:rgb(204, 211, 248);
+            width:90px;
+            height:20px;
+            margin:auto;
+            text-align:center;
+        }
+        img{
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <p id="time"></p>
+    <p><button onclick="showTime()">显示当前时间</button></p>
+    <div id="flex-container">
+        <div id="flex-items">flex item1</div>
+        <div id="flex-items">flex item2</div>
+        <div id="flex-items">flex item3</div>
+        <div id="flex-items">flex item4</div>
+        <div id="flex-items">flex item5</div>
+    </div><br>
+    <div id="pic">
+        <img id="image" onclick="change()" src="res/picture.png">
+    </div>
+<script>
+    function showTime(){
+        document.getElementById("time").innerHTML=Date();
+        window.alert("hello world");
+    }
+    function change(){
+        var img=document.getElementById("image");
+        if(img.src.match("picture")){
+            img.src="res/first.png";
+        }else{
+            img.src="res/picture.png";
+        }
+    }
+</script>
+</body>
+</html>

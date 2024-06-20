@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag and drop</title>
+    <style>
+        #mainer{
+        width:510px;
+        display:flex;
+        margin:20px;
+        padding:20px;
+        justify-content:space-between;
+        }
+        #goap1,#goap2{
+            width:230px;
+            height:400px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainer">
+        <div id="goap1" ondrop="drop(event)" ondragover="dragover(event)">
+            <img id="image" draggable="true" ondragstart="dragstart(event)" src="res/first.png" width="200"></div>
+        <div id="goap2" ondrop="drop(event)" ondragover="dragover(event)"></div>
+    </div>
+    <script>
+        function dragstart(ev){
+            ev.dataTransfer.setData("Text",ev.target.id);
+        }
+        function dragover(ev){
+            ev.preventDefault();
+        }
+        function drop(ev){
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+</html>

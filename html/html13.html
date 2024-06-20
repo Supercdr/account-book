@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+    <script>
+        var board=document.getElementById("board");
+        function leaveMessage(){
+            if(typeof(Storage)!=='undefined'){
+                 localStorage.getItem=tx.value;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <textarea id="board"></textarea><br>
+        <input type="button" class="button" onclick="leaveMessage()" value="留言">
+        <input type="button" class="button" onclick="clear()" value="清除">
+    </div>
+
+</body>
+</html>

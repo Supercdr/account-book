@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console</title>
+</head>
+<body>
+    <button id="bt" onclick="days()">点击</button>
+    <button onclick="error()">确定</button>
+    <p id="texts">前端学习第15天</p>
+    <script>
+        var a=5;
+        var b=6;
+        var c=a+b;
+        var d="Volvo";
+        console.log(c);
+        document.write(d);
+        var carname=["Volvo","BMW","Saab","Ford"];
+        var i=0;
+        while(carname[i]){
+            document.write("<br>"+carname[i]);
+            i++;
+        };
+        function days(){
+            var texts=document.getElementById("texts").innerHTML;
+            var text=texts.replace("15","16");
+            document.getElementById("texts").innerHTML=text;
+        }
+        document.write("<br>");
+        var patt=new RegExp("l");
+        document.write(patt.test("hello world")+"<br>");
+        document.write(patt.exec("hello world")+"<br>");
+        patt.compile("or");
+        document.write(patt.test("hello world"));
+        var txt="";
+        function error(){
+            try{
+                allllert("hello world");
+            }catch(err){
+                txt="本页有一个错误\n\n";
+                txt+="错误描述："+err.message+"\n\n";
+                txt+="点击确定继续\n\n";
+                alert(txt);
+            }
+        }
+
+    </script>
+</body>
+</html>

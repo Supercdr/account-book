@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web Worker</title>
+</head>
+<body>
+    <p>计数：<output id="text"></output></p>
+    <button id="button1" onclick="startCount()">开始计数</button>
+    <button id="button2" onclick="stopCount()">停止计数</button>
+    <script>
+        var w;
+        function startCount(){
+            if(typeof(Worker)!=='undefined'){
+            if(typeof(w)=='undefined'){
+                w=new Worker("js/demo_workers.js");
+            }
+            w.onmessage=function(event){
+                document.getElementById("text").innerHTML=event.data;
+            };
+        }else{
+            document.getElementById("text").innerHTML="sorry, your browser is not supported web worker!";
+            }
+        }
+        function stopCount(){
+            w.terminate();
+        }
+    </script>
+</body>
+</html>

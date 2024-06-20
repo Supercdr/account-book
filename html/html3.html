@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+<script>
+</script>
+<body>
+    <form id="self" action="MAILTO:someone@example.com" method="post" enctype="multipart/form-data">
+        姓名：<input required autofocus pattern="^.*.*$" type="text" placeholder="your name" name="name"><br>
+        密码：<input placeholder="Min 6 characters" type="password" placeholder="your password" name="pwd"><br>
+        年龄：<input type="text" id="age">
+              <input type="button" value="符合年龄" onclick="age()"><br>
+        性别：<input type="radio" name="sex" value="male">男
+           <input type="radio" name="sex" value="female">女<br>
+        <label for="hobby" style="vertical-align: top">兴趣爱好：
+        <select id="hobby" name="hobby" size="5" multiple>
+            <option value="sing">唱歌</option>
+            <option value="paint" label="绘画" selected>绘画</option>
+            <option value="writing" disabled="disabled">写作</option>
+            <option value="reading">阅读</option>
+        </select></label><br>
+        个人简介：<br><textarea disabled rows="5" cols="50" wrap="soft" size="50"></textarea><br>
+        <label style="vertical-align:top" for="first">所获奖项：<input type="checkbox" name="first">校一等奖学金
+        <input type="checkbox" name="first" >校二等奖学金
+        <input type="checkbox" name="first" >校三等奖学金<br>
+        <input type="checkbox" name="first" >国家奖学金
+        <input type="checkbox" name="first">省政府奖学金</label><br>
+        <label for="fruit">水果：</label><input list="fruitlist" id="fruit"><br>
+        手机号码：<input type="tel" placeholder="(XXX)-XXX-XXXX" name="tel" id="tel"><br>
+        时间：<input type="time" name="time" id="time"><input type="datetime-local" name="datetime" id="datetime"><br>
+        颜色：<input type="color" id="color"><br>
+        搜索：<input type="search" id="search"><br>
+        <input type="file" name="img" multiple><br>
+        图像：<input type="image" src="res/first.png" width="200px" alt="submit">
+        <fieldset>
+            <legend accesskey="y">电子<u>邮件</u>：</legend>
+            邮箱地址：<input type="email" name="email" id="email" size="20" placeholder="123456@qq.com" pattern=".*@mydomain.com$"><br>
+            验证码：<input type="text" name="email" size="20"><button value="验证">验证</button>
+        </fieldset>
+    </form><br>
+    <form onsubmit="return false" oninput="res.value=quantity.valueAsNumber*price.valueAsNumber">
+    <filedset>
+        <legend>Price Calculator</legend>
+        <input type="number" placeholder="quantity"  id="quantity">
+        *<input type="number" placeholder="price"  id="price">
+        =<output for="quantity name" name="res"></output>
+    </filedset>
+    </form><br>
+    <datalist id="fruitlist">
+        <option value="A" label="first"></option>
+        <option value="B">second</option>
+        <option value="C"></option>
+    </datalist>
+    <input size="50" id="text" value="这是一段只读文字" readonly><br><br>
+    <input form="self" type="submit" value="保存" novalidate>
+    <input form="self" type="reset" value="清除">
+    <!--tabindex属性设置制表顺序-->
+    <form action="http://your server/" method="get" name="frmTabExample">
+        <input type="checkbox" name="chkNumber" value="1" tabindex="3" /> One<br />
+        <input type="checkbox" name="chkNumber" value="2" tabindex="7" /> Two<br />
+        <input type="checkbox" name="chkNumber" value="3" tabindex="4" /> Three<br />
+        <input type="checkbox" name="chkNumber" value="4" tabindex="1" /> Four<br />
+        <input type="checkbox" name="chkNumber" value="5" tabindex="9" /> Five<br />
+        <input type="checkbox" name="chkNumber" value="6" tabindex="6" /> Six<br />
+        <input type="checkbox" name="chkNumber" value="7" tabindex="10" /> Seven<br />
+        <input type="checkbox" name="chkNumber" value="8" tabindex="2" /> Eight<br />
+        <input type="checkbox" name="chkNumber" value="9" tabindex="8" /> Nine<br />
+        <input type="checkbox" name="chkNumber" value="10" tabindex="5" /> Ten<br />
+    </form>
+    输入数字：<input type="number" step="5" value="1" min="0" max="100"><br>
+    数字范围：<input type="range" step="5" value="1" min="0" max="100">
+    
+</body>
+</html>

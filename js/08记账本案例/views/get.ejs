@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>账单记录</title>
+  <link rel="stylesheet" href="/css/记录.css">
+</head>
+<body>
+  <div id="container">
+    <h1>账单记录</h1>
+    <hr>
+    <div id="contain">
+      <% account.forEach(item=>{ %>
+      
+      <div class="record">
+        <p class="<%= item.category===-1? "title-expand": "title-income" %>">
+          <%= item.title %>
+          <a  class="remove" href="/account/get/<%= item.id %>"><span>✖</span></a>
+        </p>
+        
+        <div class="detail">
+          <span class="cost">
+            <%= item.category===-1? '-'+item.cost : '+'+item.cost %></span>
+          <span class="<%= item.category===-1? "expend": "income" %>"> 
+            <%= item.category===-1? "支出": "收入" %></span>
+          <span class="time"><%= moment(item.time).format('YYYY-MM-DD') %></span>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+  <a id="account" href="/account">去记账</a>
+</body>
+<script src="/js/记录.js"></script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation</title>
+</head>
+<body>
+    <p id="text">查询地理位置</p>
+    <button id="get" onclick="getLocation()">获取地理位置</button><br>
+    年龄：<input type="text" id="age"><input type="button" onclick="age()" value="符合年龄">
+    <p id="info"></p>
+
+    <form name="myForm" action="" method="post" onsubmit="return submit();">
+        姓名：<input type="text" name="fname">
+        <input type="submit" value="提交"><br><br>
+        邮箱：<input type="email" name="myEmail">
+        <input type="submit" value="验证">
+    </form>
+
+    <script>
+        function submit(){
+            var x=document.forms["myForm"]["fname"].value;
+            if(x==null || x==""){
+                alert("姓名不能为空");
+                return false;
+            }
+        }
+        function age(){
+            var age=document.getElementById("age").value;
+            try{
+                if(age=="") throw "值为空";
+                if(age<18) throw "年龄太小";
+                if(age>60) throw "年龄太大";
+                if(isNaN(age)) throw "不是数字";
+            }catch(err){
+                var info=document.getElementById("info");
+                info.innerHTML="错误："+err+".";
+            }
+        }
+        var x=document.getElementById("text");
+        function getLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition,showError);
+            }else{
+                x.innerHTML="Geolocation is not supported by this browser."
+            }
+        }
+        function showPosition(position){
+            x.innerHTML="纬度："+position.coords.latitude
+            +"经度："+position.coords.longitude;
+        }
+        function showError(error){
+            switch(error.code){
+                case error.PERMISSION_DENIED:
+                    x.innerHTML="用户拒绝了地理位置请求";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML="地理位置不可用";
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML="请求时间超时";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML="未知错误"
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+</head>
+<body>
+    <form action="" method="get" autocomplete="on">
+        姓名：<input type="text" name="myname" value="你好"><br>
+        加密：<keygen name="security"></keygen><br>
+        邮件：<input type="email" name="myEmail" autocomplete="off">
+        <input type="submit">
+    </form><br>
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0<input type="range" id="a">100
+        +<input type="number" value="30" id="b">
+        =<output name="x" for="a b"></output>
+    </form><br>
+    <!--视频控制-->
+    <button onclick="control();clickCounter()">播放/暂停</button>
+    <button onclick="makeBig()">放大</button>
+    <button onclick="makeSmall()">缩小</button>
+    <button onclick="normal()">正常</button><br><br>
+    <video id="myVideo" width="400px">
+        <source src="res/firework.mp4" type="video/mp4">
+        <source src="res/firework.ogg" type="video/ogg">
+        您的浏览器不支持video标签！
+    </video><br>
+    <p id="text"></p>
+    <script>
+        function clickCounter(){
+            if(typeof(Storage)!=="undefined"){
+                if(localStorage.clickcount){
+                    localStorage.clickcount=Number(localStorage.clickcount)+1;
+                }else{
+                    localStorage.clickcount=1;
+                }
+            }else{
+                document.getElementById("text").innerHTML="很抱歉，您的浏览器不支持web存储！"
+            }
+            document.getElementById("text").innerHTML="您已经观看此视频"+parseInt(localStorage.clickcount/2)+"次！"
+        }
+        var vd=document.getElementById("myVideo");
+        function control(){
+            if(vd.paused){
+                vd.play();
+            }else{
+                vd.pause();
+            }
+        }
+        function makeBig(){
+            vd.width=500;
+        }
+        function makeSmall(){
+            vd.width=300;
+        }
+        function normal(){
+            vd.width=400;
+        }
+    </script>
+</body>
+</html>

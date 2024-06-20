@@ -1,0 +1,30 @@
+{
+  "singers": [
+    {
+      "id": 1,
+      "name": "Taylor Swift",
+      "image_url": "https://img0.baidu.com/it/u=3180568854,638123433&fm=253&fmt=auto&app=120&f=JPEG?w=798&h=500",
+      "genre": "Pop"
+    },
+    {
+      "id": 2,
+      "name": "Ed Sheeran",
+      "image_url": "https://img2.baidu.com/it/u=2196781300,2196681553&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500",
+      "genre": "Pop"
+    },
+    {
+      "id": 3,
+      "name": "Beyoncé",
+      "image_url": "https://img2.baidu.com/it/u=3565027417,2835348526&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500",
+      "genre": "R&B"
+    },
+    {
+      "id": 4,
+      "name": "Adele",
+      "image_url": "https://img2.baidu.com/it/u=1372802050,4278136243&fm=253&fmt=auto&app=138&f=JPEG?w=751&h=500",
+      "genre": "Pop"
+    }
+  ],
+  "users": [],
+  "admin": []
+}

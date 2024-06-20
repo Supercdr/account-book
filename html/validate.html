@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validateForm</title>
+</head>
+<body>
+    <form name="myForm" action="" onsubmit="return validateForm();" method="post">
+        姓名：<input type="text" name="fname">
+        <input type="submit" value="提交"><br><br>
+        邮箱：<input type="email" name="femail">
+        <input type="submit" value="验证">
+    </form>
+    <br><a href="javaScript:void(0)">单击此处不会发生任何事</a><br><br>
+    <input type="button" value="void函数验证" onclick="cacul()"><br><br>
+</body>
+<script>
+    //void函数验证
+    function cacul(){
+        var a;
+        a=void(b=5,c=7);
+        document.write("a="+a+" b="+b+" c="+c);
+    }
+    //表单信息验证
+   function validateForm(){ 
+        var x=document.forms["myForm"]["fname"].value;
+        if(x==null||x==""){
+            alert("姓名不能为空");
+            return false;
+        };
+        var y=document.forms["myForm"]["femail"].value;
+        var atpos=y.indexOf("@");
+        var dotpos=y.lastIndexOf(".");
+        if(atpos<1||dotpos<atpos+2||dotpos>=y.length){
+            alert("不是一个有效的邮箱地址");
+            return false;
+        }
+    }
+    //JSON转换为javaScript对象并且使用
+    var text='{"employees":['+
+        '{"firstName":"John","lastName":"Doe"},'+
+        '{"firstName":"Anna","lastName":"Smith"},'+
+        '{"firstName":"Peter","lastName":"Jones"}]}';
+    obj=JSON.parse(text);
+    document.write("Name:"+" "+obj.employees[1].firstName+" "+obj.employees[1].lastName);
+</script>
+</html>

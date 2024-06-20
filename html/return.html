@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return</title>
+</head>
+
+<body>
+    <script>
+        //sort()方法：对数组进行排序
+        //  var arr=[1,3,2,6,5]; 
+        //  arr.sort(function(a,b){
+        //     return a-b;
+        //  });
+        //  console.log(arr);
+
+        //  document.write("<br>"+navigator.appVersion);
+        //  document.write("<br>"+navigator.appCodeName);
+        //  document.write("<br>"+navigator.appName);
+        //  document.write("<br>"+navigator.cookieEnabled);
+
+        //  let value=5;
+        //  let exponent='second';
+        //  let interpolatedString=value+' to the '+exponent+' power is '+(value*value);
+        //  let interpolatedTemplateLiteral=`${value} to the ${exponent} power is ${value*value}`;
+        //  console.log(interpolatedString);
+        //  console.log(interpolatedTemplateLiteral);
+
+        //  let a=6;
+        //  let b=9;
+        //  function simpleTag(strings,aValExpression,bValExpression,sumExpression){
+        //     console.log(strings);
+        //     console.log(aValExpression);
+        //     console.log(bValExpression);
+        //     console.log(sumExpression);
+        //     return 'foobar';
+        //  }
+
+        //  let untaggedResult=`${a}+${b}=${a+b}`;
+        //  let taggedResult=simpleTag`${a}+${b}=${a+b}`;
+        //  console.log(untaggedResult);
+        //  console.log(taggedResult);
+
+        // let s1=Symbol('foo'), s2=Symbol('bar');
+        // let o={
+        //     [s1]:'foo val',
+        //     [s2]:'bar val',
+        //     baz:'baz val',
+        //     qux:'qux val'
+        // };
+        // // console.log(Object.getOwnPropertySymbols(o));//返回对象实例的符号属性数组
+        // // console.log(Object.getOwnPropertyNames(o));//返回对象实例的常规属性数组
+        // // console.log(Object.getOwnPropertyDescriptors(o));//同时返回包含常规和符号属性描述符的对象
+        // // console.log(Reflect.ownKeys(o));//返回两种类型的键
+        // let barSymbol=Object.getOwnPropertySymbols(o).find((symbol)=>symbol.toString().match(/bar/));
+        // console.log(barSymbol);
+
+        //异步迭代器
+        // class Foo{
+        //     async *[Symbol.asyncIterator]() {}
+        // }
+        // let f=new Foo();
+        // console.log(f[Symbol.asyncIterator]());
+
+        //Symbol.isConcatSpreadable
+
+        //字符串位置indexOf()和lastIndexOf() 查找字符串中的所有字符e
+        // let stringValue = "hi, my name is kaylee, nice to meet you, how long things going?";
+        // let position = new Array();
+        // let pos = stringValue.indexOf("e");
+        // while (pos > -1) {
+        //     position.push(pos);
+        //     pos = stringValue.indexOf("e", pos + 1);
+        //     document.write(pos);
+        // }
+
+        //字符串迭代与结构
+        // let message='abc';
+        // // let stringIterator=message[Symbol.iterator]();
+        // // console.log(stringIterator.next());
+        // console.log([...message]);
+
+        //entries()默认迭代器和...扩展操作符
+        // const m1=new Map([
+        //     ["key1","value1"],
+        //     ["key2","value2"],
+        //     ["key3","value3"]
+        // ]);
+        // document.write([...m1]);
+        // document.write([
+        //     m1.entries()]);
+
+        //定型数组拼接
+        // function typedArrayConcat(typedArrayConstructor,...typedArrays){
+        //     const numElements=typedArrays.reduce((x,y)=>(x.length||x)+y.length);
+        //     const resultArray=new typedArrayConstructor(numElements);
+        //     let currentIndex=0;
+        //     typedArrays.map(
+        //         x=>{resultArray.set(x,currentIndex);
+        //             currentIndex+=x.length;
+        //         });
+        //     return resultArray;
+        // }
+        // const concatArray=typedArrayConcat(Int32Array,
+        //                                     Int8Array.of(1,2,3),
+        //                                     Int16Array.of(4,5,6,7),
+        //                                     Float32Array.of(8,9));
+        // document.write(concatArray);
+
+        //类的迭代器
+        class Person{
+            constructor(){
+                this.nicknames=['jack','jake','j-dog'];
+            }
+
+            *[Symbol.iterator](){
+                yield* this.nicknames.entries();
+            }
+        }
+        let p=new Person();
+        for(let [idx,nickname] of p){
+            console.log(nickname);
+        }
+    </script>
+
+</body>
+
+</html>
+
+ 

@@ -1,0 +1,78 @@
+body{
+  display:flex;
+  justify-content: center;
+  background-color:antiquewhite;
+  margin:0;
+}
+#container{
+  width:70%;
+  border-radius:8px;
+  background: blanchedalmond;
+}
+#contain:last-child{
+  margin-bottom: 100px;
+}
+.title-income{
+  font-size:20px;
+  font-weight: bold;
+  color:white;
+  letter-spacing:1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding:10px 20px;
+  background-color: rgb(150, 175, 223);
+  margin-bottom:0;
+  display:flex;
+  justify-content: space-between;
+}
+.title-expand{
+  font-size:20px;
+  font-weight: bold;
+  color:white;
+  letter-spacing:1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding:10px 20px;
+  background-color: rgb(243, 188, 122);
+  margin-bottom:0;
+  display:flex;
+  justify-content: space-between;
+}
+.detail{
+  background-color: rgb(244, 244, 244);
+  padding:15px 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display:flex;
+  justify-content: space-between;
+}
+.income{
+  background-color: rgb(202, 234, 190);
+  border-radius:3px;
+  padding:4px 5px;
+}
+.expend{
+  background-color: rgb(238, 212, 200);
+  border-radius:3px;
+  padding:4px 5px;
+}
+.remove{
+  display:none;
+}
+a{
+  text-decoration: none;
+  color:white;
+}
+#account{
+  font-size:18px;
+  font-weight:bold;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
+  text-align: center;
+  background-color: rgb(255, 192, 109);
+  color:white;
+  padding:20px;
+  bottom:0;
+  position:fixed;
+  width:100%;
+}
